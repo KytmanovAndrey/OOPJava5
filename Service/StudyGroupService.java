@@ -16,8 +16,7 @@ public class StudyGroupService {
     }
 
     public StudyGroup createStudyGroup(Teacher teacher, List<Student> studentList) {
-        StudyGroup studyGroup = new StudyGroup(teacher, studentList);
-        return studyGroup;
+        return new StudyGroup(teacher, studentList);
     }
 
     public List<User> getAllTeachers() {
