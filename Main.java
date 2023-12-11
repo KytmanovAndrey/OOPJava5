@@ -19,5 +19,11 @@ public class Main {
         controler.createStudent("2", "2","2","2");
 
         controler.printStudyGroup();
+
+        System.out.println();
+
+        controler.createStudent("1", "1","1","1");
+
+        controler.printStudyGroup();
     }
 }
