@@ -9,7 +9,11 @@ import Data.Teacher;
 import Data.Student;
 
 public class DataService {
-    private List<User> userList;
+    protected List<User> userList;
+
+    public List<User> getUserList() {
+        return userList;
+    }
 
     public DataService() {
         this.userList = new ArrayList<>();

@@ -1,20 +1,18 @@
 package Controler;
 
-import Data.Teacher;
-import Data.Type;
-import Data.User;
-import Data.Student;
+import Data.*;
 import Service.DataService;
 import Service.StudyGroupService;
 import View.StudentView;
+import View.StudyGroupView;
 
 import java.util.List;
 
 public class Controler {
     private final DataService service = new DataService();
     private final StudentView studentView = new StudentView();
-
     private final StudyGroupService studyGroupService = new StudyGroupService();
+    private final StudyGroupView studyGroupView = new StudyGroupView();
 
     public void createStudent(String firstName, String secondName,
                               String lastName, String dateB) {
@@ -39,6 +37,14 @@ public class Controler {
 
     public void getAllUser() {
         List<User> userList = service.getAllUser();
+        for (User user : userList) {
+            System.out.println(user);
+        }
+    }
+
+    public void printStudyGroup() {
+        studyGroupService.setStudyGroup(service.getUserList());
+        List<User> userList = studyGroupService.printStudyGroup();
         for (User user : userList) {
             System.out.println(user);
         }

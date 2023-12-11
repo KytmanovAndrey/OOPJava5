@@ -1,18 +1,19 @@
 package Service;
 
-import Data.Student;
-import Data.StudyGroup;
-import Data.Teacher;
-import Data.User;
+import Data.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class StudyGroupService {
-    private final List<User> userList;
+public class StudyGroupService extends DataService {
+    private final List<User> studyGroupList;
 
     public StudyGroupService() {
-        this.userList = new ArrayList<>();
+        this.studyGroupList = new ArrayList<>();
+    }
+
+    public void setStudyGroup(List<User> someList) {
+        userList = someList;
     }
 
     public StudyGroup createStudyGroup(Teacher teacher, List<Student> studentList) {
@@ -41,5 +42,22 @@ public class StudyGroupService {
 
     public List<User> getAllUsers() {
         return userList;
+    }
+
+    public List<User> printStudyGroup() {
+        List<User> resultList = new ArrayList<>();
+        boolean flag = false;
+        for (User user : userList) {
+            if (user instanceof Teacher && !studyGroupList.contains(user) && !flag) {
+                studyGroupList.add(user);
+                flag = true;
+                resultList.add(user);
+            }
+            if (user instanceof Student && !studyGroupList.contains(user)) {
+                studyGroupList.add(user);
+                resultList.add(user);
+            }
+        }
+        return resultList;
     }
 }
