@@ -1,4 +1,6 @@
 import Controler.Controler;
+import Data.StudyGroup;
+
 
 public class Main {
     public static void main(String[] args) {
@@ -9,8 +11,7 @@ public class Main {
         controler.createTeacher("1", "2", "2", "1");
         controler.createStudent("2", "2","2","2");
 
-        controler.printStudyGroup();
-
+        StudyGroup first = controler.printStudyGroup();
         System.out.println();
 
         controler.createStudent("1", "1","1","1");
@@ -18,12 +19,14 @@ public class Main {
         controler.createTeacher("3", "3", "3", "3");
         controler.createStudent("2", "2","2","2");
 
-        controler.printStudyGroup();
-
+        StudyGroup second = controler.printStudyGroup();
         System.out.println();
 
         controler.createStudent("1", "1","1","1");
 
-        controler.printStudyGroup();
+        StudyGroup third = controler.printStudyGroup();
+
+        System.out.println();
+        System.out.println(first);
     }
 }

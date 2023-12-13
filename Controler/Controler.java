@@ -6,6 +6,7 @@ import Service.StudyGroupService;
 import View.StudentView;
 import View.StudyGroupView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Controler {
@@ -42,12 +43,20 @@ public class Controler {
         }
     }
 
-    public void printStudyGroup() {
+    public StudyGroup printStudyGroup() {
+        StudyGroup studyGroup = new StudyGroup(null, null);
         studyGroupService.setStudyGroup(service.getUserList());
         List<User> userList = studyGroupService.printStudyGroup();
+        List<Student> studentList = new ArrayList<>();
         for (User user : userList) {
+            if (user instanceof Teacher)
+                studyGroup.setTeacher((Teacher) user);
+            if (user instanceof Student)
+                studentList.add((Student) user);
+            studyGroup.setStudentList(studentList);
             System.out.println(user);
         }
+        return studyGroup;
     }
 
 }

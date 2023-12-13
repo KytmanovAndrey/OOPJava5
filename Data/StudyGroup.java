@@ -26,6 +26,11 @@ public class StudyGroup {
     public void setStudentList(List<Student> studentList) {
         this.studentList = studentList;
     }
-
-
+    @Override
+    public String toString() {
+        return "StudyGroup{" +
+                "teacher=" + teacher +
+                ", \nstudentList=" + studentList +
+                '}';
+    }
 }
